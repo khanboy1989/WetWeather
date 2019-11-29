@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.WeatherListFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/inner_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_gradiant_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/horizontal_guideline">
+
+
+        <TextView
+            android:id="@+id/weatherStatusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/inner_constraint"
+            app:layout_constraintStart_toStartOf="@+id/inner_constraint"
+            app:layout_constraintEnd_toEndOf="@+id/inner_constraint"
+            app:layout_constraintBottom_toTopOf="@+id/cityNameTextView"
+            android:text="Rainy"
+            style="@style/Text"
+            />
+
+        <TextView
+            android:id="@+id/cityNameTextView"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="London,UK"
+            app:layout_constraintBottom_toTopOf="@+id/temperatureTextView"
+            app:layout_constraintEnd_toEndOf="@+id/inner_constraint"
+            app:layout_constraintStart_toStartOf="@+id/inner_constraint"
+            app:layout_constraintTop_toBottomOf="@+id/weatherStatusTextView" />
+
+        <TextView
+            android:id="@+id/temperatureTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/inner_constraint"
+            app:layout_constraintEnd_toEndOf="@+id/inner_constraint"
+            app:layout_constraintTop_toBottomOf="@+id/cityNameTextView"
+            app:layout_constraintBottom_toTopOf="@+id/citySearchView"
+            style="@style/Text"
+            android:text="18˚"
+            />
+
+
+        <SearchView
+            android:id="@+id/citySearchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="@string/search_for_a_city"
+            android:iconifiedByDefault="false"
+            app:layout_constraintStart_toStartOf="@+id/inner_constraint"
+            app:layout_constraintEnd_toEndOf="@+id/inner_constraint"
+            app:layout_constraintBottom_toBottomOf="@+id/inner_constraint"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35"/>
+
+    <TextView
+        android:id="@+id/next_days_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_guideline"
+        android:layout_marginTop="10dp"
+        style="@style/Title.PrimaryColor"
+        android:text="@string/next_seven_days"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/next_days_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
