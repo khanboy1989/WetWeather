@@ -2,6 +2,6 @@
     <string name="app_name">WetWeather</string>
     <string name="search_for_a_city">Search for a city</string>
     <string name="next_seven_days">Next Seven Days</string>
-    <string name="api_key">changeme</string>
+    <string name="api_key">AIzaSyD_XZDngnwGr1aNNVitR5986DQJZgaGA5k</string>
     <string name="hasSelectedPlace">places/selected_place</string>
 </resources>
