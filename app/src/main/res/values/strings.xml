@@ -4,4 +4,5 @@
     <string name="next_seven_days">Next Seven Days</string>
     <string name="api_key">AIzaSyD_XZDngnwGr1aNNVitR5986DQJZgaGA5k</string>
     <string name="hasSelectedPlace">places/selected_place</string>
+    <string name="place_error">An error occured when selecting the place</string>
 </resources>

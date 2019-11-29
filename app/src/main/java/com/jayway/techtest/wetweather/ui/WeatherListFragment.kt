@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.model.TypeFilter
@@ -17,6 +19,7 @@ import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.jayway.techtest.wetweather.R
 import com.jayway.techtest.wetweather.util.extractCityNameShortCountryName
+import com.jayway.techtest.wetweather.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_weather_list.view.*
 import java.util.*
 
@@ -26,6 +29,8 @@ class WeatherListFragment : Fragment(),
 
     private lateinit var rootView: View
     private var TAG:String = WeatherListFragment::class.java.simpleName
+    private lateinit var viewModel: ListViewModel
+
 
     //onCreateView
     override fun onCreateView(
@@ -35,6 +40,8 @@ class WeatherListFragment : Fragment(),
         rootView = inflater.inflate(R.layout.fragment_weather_list, container, false)
         addSearchViewListeners()
         initializePlaces()
+        viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
+        viewModel.getCurrentWeather()
         return rootView
     }
 
@@ -42,11 +49,6 @@ class WeatherListFragment : Fragment(),
     private fun addSearchViewListeners() {
         rootView.citySearchView.setOnQueryTextListener(this)
         rootView.citySearchView.setOnQueryTextFocusChangeListener(this)
-
-//        rootView.citySearchView.setOnClickListener {
-//            Log.d(TAG,"onclicked")
-//        }
-
     }
 
     override fun onFocusChange(view: View?, focus: Boolean) {
@@ -67,6 +69,7 @@ class WeatherListFragment : Fragment(),
     override fun onQueryTextSubmit(query: String?): Boolean {
         if(!query.isNullOrEmpty()){
             Log.d(TAG,query)
+
         }
         return false
     }
@@ -117,6 +120,7 @@ class WeatherListFragment : Fragment(),
 
             AutocompleteActivity.RESULT_ERROR -> {
                 //capture if error occurred
+                Toast.makeText(activity,getString(R.string.place_error),Toast.LENGTH_LONG).show()
 
             }
 
