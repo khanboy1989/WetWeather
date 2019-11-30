@@ -1,9 +1,13 @@
 package com.jayway.techtest.wetweather.util
 
 import android.content.Context
+import android.net.Uri
+import android.util.Log
 import android.widget.ImageView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestBuilder
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.libraries.places.api.model.Place
 import com.jayway.techtest.wetweather.R
@@ -49,8 +53,15 @@ fun ImageView.loadImage(uri: String?, progressDrawable: CircularProgressDrawable
         .into(this)
 }
 
-fun ImageView.loadIcon(icon: String) {
-    Glide.with(context)
-        .load("http://openweathermap.org/img/w/$icon.png',")
+fun ImageView.loadIcon(icon: String?, progressDrawable: CircularProgressDrawable) {
+
+    val uri = "http://openweathermap.org/img/w/$icon.png"
+
+    val options = RequestOptions.placeholderOf(progressDrawable)
+        .error(R.mipmap.ic_launcher_round)
+
+    Glide.with(this.context)
+        .asBitmap()
+        .load(uri)
         .into(this)
 }

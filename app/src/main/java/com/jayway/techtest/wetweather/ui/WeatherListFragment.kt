@@ -57,11 +57,7 @@ class WeatherListFragment : Fragment(),
     private fun initRecycler(){
         rootView.weatherHistRecycler.adapter = adapter
         rootView.weatherHistRecycler.addItemDecoration(
-            DividerItemDecoration(
-                rootView.weatherHistRecycler.getContext(),
-                DividerItemDecoration.VERTICAL
-            )
-        )
+            DividerItemDecoration(rootView.weatherHistRecycler.getContext(), DividerItemDecoration.VERTICAL))
 
     }
 
@@ -176,6 +172,7 @@ class WeatherListFragment : Fragment(),
         Log.d(TAG,weatherHistory.toString())
             rootView.weatherHistRecycler.visibility = View.VISIBLE
             rootView.loadingView.visibility = View.GONE
+            rootView.next_days_id.visibility = View.VISIBLE
             adapter.refreshData(weatherHistory.historyList!!)
     }
     private val loadingLiveDataObserver = Observer<Boolean> { isLoading ->
@@ -183,10 +180,12 @@ class WeatherListFragment : Fragment(),
             true->{
               rootView.loadingView.visibility = View.VISIBLE
               rootView.weatherHistRecycler.visibility = View.GONE
+              rootView.next_days_id.visibility = View.GONE
             }
             false->{
                 rootView.loadingView.visibility = View.GONE
                 rootView.weatherHistRecycler.visibility = View.VISIBLE
+                rootView.next_days_id.visibility = View.VISIBLE
             }
         }
     }

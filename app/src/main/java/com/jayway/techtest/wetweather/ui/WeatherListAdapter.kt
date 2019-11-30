@@ -9,6 +9,8 @@ import com.jayway.techtest.wetweather.R
 import com.jayway.techtest.wetweather.models.WeatherData
 import com.jayway.techtest.wetweather.models.WeatherHistory
 import com.jayway.techtest.wetweather.util.convertToDateTime
+import com.jayway.techtest.wetweather.util.getProgresDrawable
+import com.jayway.techtest.wetweather.util.loadIcon
 import kotlinx.android.synthetic.main.weather_item.view.*
 
 
@@ -48,6 +50,7 @@ class WeatherListAdapter:RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         fun bindData(item:WeatherData?){
             date.text = item?.dt?.convertToDateTime()
             weatherStatus.text = item?.weather?.get(0)?.main
+            weatherStatusImage.loadIcon(item?.weather?.get(0)?.icon, getProgresDrawable(itemView.context))
         }
 
     }
