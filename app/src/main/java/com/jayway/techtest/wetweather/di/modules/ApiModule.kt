@@ -9,7 +9,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
-class ApiModule {
+open class ApiModule {
 
     private val BASE_URL = "http://api.openweathermap.org/data/2.5/"
 

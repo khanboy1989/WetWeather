@@ -17,7 +17,7 @@ class FeedsTest{
 
     @Test
     fun createUrlForWeatherHistory(){
-        val url = Feeds.createSevenDaysWeatherUrl("100","7")
+        val url = Feeds.createWeatherHistoryUrl("100","7")
         Assert.assertEquals(url,"forecast?id=100&cnt=7&appid=b4af92bbda4d0b6e66744b4df7fe1422")
     }
 }

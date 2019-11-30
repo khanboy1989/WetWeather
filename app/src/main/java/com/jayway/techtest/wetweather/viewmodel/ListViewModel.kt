@@ -1,8 +1,6 @@
 package com.jayway.techtest.wetweather.viewmodel
 
-import android.annotation.SuppressLint
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.jayway.techtest.wetweather.di.components.DaggerViewModelComponent
@@ -47,7 +45,6 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
             .subscribeOn(Schedulers.newThread())
             .subscribeWith(object:DisposableSingleObserver<CurrentWeather>(){
                 override fun onSuccess(weather: CurrentWeather) {
-                    Log.d(TAG,weather.toString())
                     currentWeather.value = weather
                     loadError.value = false
                     loading.value = false
@@ -55,7 +52,6 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
                 }
 
                 override fun onError(e: Throwable) {
-                    e.printStackTrace()
                     currentWeather.value = null
                     loadError.value = true
                     loading.value = false
@@ -64,20 +60,18 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
     }
 
 
-    private fun getWeatherHistory(requestId:Long?){
+     fun getWeatherHistory(requestId:Long?){
         val url = Feeds.createWeatherHistoryUrl(requestId.toString(),"20")
         disposable.add(
             apiService.getWeatherHistroyForGivenDuration(url).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribeWith(object :DisposableSingleObserver<WeatherHistory>(){
                     override fun onSuccess(weatherHist: WeatherHistory) {
-                        Log.d(TAG,weatherHist.toString())
                         weatherHistory.value = weatherHist
                         loading.value = false
                         loadError.value = false
                     }
                     override fun onError(e: Throwable) {
-                        e.printStackTrace()
                         weatherHistory.value = null
                         loadError.value = true
                         loading.value = false
