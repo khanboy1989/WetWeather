@@ -25,7 +25,6 @@
             app:layout_constraintStart_toStartOf="@+id/inner_constraint"
             app:layout_constraintEnd_toEndOf="@+id/inner_constraint"
             app:layout_constraintBottom_toTopOf="@+id/cityNameTextView"
-            android:text="Rainy"
             style="@style/Text"
             />
 
@@ -34,7 +33,7 @@
             style="@style/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="London,UK"
+            android:text="@string/enter_a_city_name"
             app:layout_constraintBottom_toTopOf="@+id/temperatureTextView"
             app:layout_constraintEnd_toEndOf="@+id/inner_constraint"
             app:layout_constraintStart_toStartOf="@+id/inner_constraint"
@@ -49,7 +48,6 @@
             app:layout_constraintTop_toBottomOf="@+id/cityNameTextView"
             app:layout_constraintBottom_toTopOf="@+id/citySearchView"
             style="@style/Text"
-            android:text="18˚"
             />
 
 
@@ -83,11 +81,24 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontal_guideline"
         android:layout_marginTop="10dp"
         style="@style/Title.PrimaryColor"
-        android:text="@string/next_seven_days"
+        android:text="@string/next_several_days"
+        android:visibility="gone"
         />
 
 
+    <ProgressBar
+        android:id="@+id/loadingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/next_days_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weatherHistRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@+id/next_days_id"
@@ -95,6 +106,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="10dp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

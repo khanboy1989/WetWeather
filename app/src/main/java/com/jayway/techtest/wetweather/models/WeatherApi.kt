@@ -8,4 +8,8 @@ interface WeatherApi {
 
     @GET
     fun getCurrentWeather(@Url url:String):Single<CurrentWeather>
+
+
+    @GET
+    fun getWeatherHistoryForGivenDuration(@Url url:String):Single<WeatherHistory>
 }

@@ -13,7 +13,11 @@ class WeatherApiService {
         DaggerApiComponent.create().inject(this)
     }
 
-    fun getCurrentWeather():Single<CurrentWeather>{
-        return weatherApi.getCurrentWeather("find?q=London,GB&type=like&units=metric&appid=b4af92bbda4d0b6e66744b4df7fe1422")
+    fun getCurrentWeather(url:String):Single<CurrentWeather>{
+        return weatherApi.getCurrentWeather(url)
+    }
+
+    fun getWeatherHistroyForGivenDuration(url:String):Single<WeatherHistory>{
+        return weatherApi.getWeatherHistoryForGivenDuration(url)
     }
 }

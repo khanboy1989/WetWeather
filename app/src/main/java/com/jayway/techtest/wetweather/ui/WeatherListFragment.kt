@@ -1,6 +1,7 @@
 package com.jayway.techtest.wetweather.ui
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
@@ -18,10 +20,16 @@ import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.jayway.techtest.wetweather.R
+import com.jayway.techtest.wetweather.models.CurrentWeather
+import com.jayway.techtest.wetweather.models.WeatherHistory
 import com.jayway.techtest.wetweather.util.extractCityNameShortCountryName
 import com.jayway.techtest.wetweather.viewmodel.ListViewModel
+import kotlinx.android.synthetic.main.fragment_weather_list.*
 import kotlinx.android.synthetic.main.fragment_weather_list.view.*
-import java.util.*
+import kotlinx.android.synthetic.main.fragment_weather_list.view.weatherHistRecycler
+import androidx.recyclerview.widget.DividerItemDecoration
+
+
 
 
 class WeatherListFragment : Fragment(),
@@ -30,7 +38,7 @@ class WeatherListFragment : Fragment(),
     private lateinit var rootView: View
     private var TAG:String = WeatherListFragment::class.java.simpleName
     private lateinit var viewModel: ListViewModel
-
+    private val adapter = WeatherListAdapter()
 
     //onCreateView
     override fun onCreateView(
@@ -40,11 +48,22 @@ class WeatherListFragment : Fragment(),
         rootView = inflater.inflate(R.layout.fragment_weather_list, container, false)
         addSearchViewListeners()
         initializePlaces()
-        viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
-        viewModel.getCurrentWeather()
+        initViewModel()
+        initRecycler()
         return rootView
     }
 
+
+    private fun initRecycler(){
+        rootView.weatherHistRecycler.adapter = adapter
+        rootView.weatherHistRecycler.addItemDecoration(
+            DividerItemDecoration(
+                rootView.weatherHistRecycler.getContext(),
+                DividerItemDecoration.VERTICAL
+            )
+        )
+
+    }
 
     private fun addSearchViewListeners() {
         rootView.citySearchView.setOnQueryTextListener(this)
@@ -56,8 +75,6 @@ class WeatherListFragment : Fragment(),
             rootView.citySearchView -> {
                 if(focus){
                     onSearchFocused()
-                }else {
-                    Log.d(TAG,"focused again")
                 }
             }
         }
@@ -69,7 +86,7 @@ class WeatherListFragment : Fragment(),
     override fun onQueryTextSubmit(query: String?): Boolean {
         if(!query.isNullOrEmpty()){
             Log.d(TAG,query)
-
+            viewModel.refreshCurrentWeather(query)
         }
         return false
     }
@@ -139,10 +156,50 @@ class WeatherListFragment : Fragment(),
         if (data!=null && data.hasExtra(getString(R.string.hasSelectedPlace))) {
             val place = Autocomplete.getPlaceFromIntent(data)
             val countryCity = place.extractCityNameShortCountryName()
-            rootView.citySearchView.setQuery(countryCity,false)
-        } else {
-
+            rootView.citySearchView.setQuery(countryCity,true)
         }
+    }
+
+
+    @SuppressLint("SetTextI18n")
+    private val currentWeatherDataObserver = Observer<CurrentWeather>{
+        weather->
+        weather?.let{
+            rootView.cityNameTextView.text = weather.list?.get(0)?.name
+            rootView.weatherStatusTextView.text = weather.list?.get(0)?.weatherList?.get(0)?.main
+            rootView.temperatureTextView.text = weather.list?.get(0)?.main?.temp.toString() + "˚"
+        }
+    }
+
+    private val weatherHistoryObserver = Observer<WeatherHistory>{
+        weatherHistory->
+        Log.d(TAG,weatherHistory.toString())
+            rootView.weatherHistRecycler.visibility = View.VISIBLE
+            rootView.loadingView.visibility = View.GONE
+            adapter.refreshData(weatherHistory.historyList!!)
+    }
+    private val loadingLiveDataObserver = Observer<Boolean> { isLoading ->
+        when(isLoading){
+            true->{
+              rootView.loadingView.visibility = View.VISIBLE
+              rootView.weatherHistRecycler.visibility = View.GONE
+            }
+            false->{
+                rootView.loadingView.visibility = View.GONE
+                rootView.weatherHistRecycler.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private val errorLiveDataObserver = Observer<Boolean> { isError ->
+    }
+
+    private fun initViewModel(){
+        viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
+        viewModel.currentWeather.observe(this, currentWeatherDataObserver)
+        viewModel.loading.observe(this, loadingLiveDataObserver)
+        viewModel.loadError.observe(this, errorLiveDataObserver)
+        viewModel.weatherHistory.observe(this,weatherHistoryObserver)
     }
 
     companion object {

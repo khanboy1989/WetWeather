@@ -9,6 +9,6 @@ class UtilTests {
     @Test
     fun testUtilConvertTimeStampToDate(){
         val timeStampDate = "1575040157".convertToDateTime()
-        Assert.assertEquals(timeStampDate,"29/11/2019")
+        Assert.assertEquals(timeStampDate,"29 Nov 2019")
     }
 }
