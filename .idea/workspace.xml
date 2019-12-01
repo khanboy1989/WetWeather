@@ -12,13 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43ad742e-fa43-4a4c-a70c-4d414b78e48c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherListFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +24,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="HT6A40201699" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5_API_27" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -48,19 +43,10 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/models/CurrentWeather.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="846">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="e#47#192#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/models/WeatherApiService.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -86,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherListFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="185" column="135" lean-forward="true" selection-start-line="185" selection-start-column="135" selection-end-line="185" selection-end-column="135" />
+            <state relative-caret-position="258">
+              <caret line="185" column="36" selection-start-line="185" selection-start-column="36" selection-end-line="185" selection-end-column="36" />
               <folding>
                 <element signature="e#44#1274#0" expanded="true" />
               </folding>
@@ -101,12 +87,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_weather_list.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="84" column="8" lean-forward="true" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="33" />
+            <state relative-caret-position="275">
+              <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
               <folding>
                 <element signature="e#3696#3723#0" expanded="true" />
                 <element signature="e#5223#5271#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_weather_detail.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="68" column="39" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="39" />
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
@@ -125,32 +130,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/jayway/techtest/wetweather/models/CurrentWeatherInfo.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherDetailFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="299">
+              <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
               <folding>
-                <element signature="e#10862#10863#0" expanded="true" />
-                <element signature="e#10885#10886#0" expanded="true" />
+                <element signature="e#1645#1676#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherDetailFragment.kt">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="39" column="68" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/util/Util.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+            <state relative-caret-position="361">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
@@ -215,7 +210,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/di/modules/ApiModule.kt" />
         <option value="$PROJECT_DIR$/app/src/test/java/com/jayway/techtest/wetweather/ListViewModelTests.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/MainActivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/models/CurrentWeather.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/models/WeatherHistroy.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/util/Util.kt" />
@@ -223,11 +217,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/viewmodel/ListViewModel.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/navigation/main_navigation.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherListAdapter.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherDetailFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/util/Feeds.kt" />
         <option value="$PROJECT_DIR$/app/src/test/java/com/jayway/techtest/wetweather/FeedsTest.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_weather_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherListFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherDetailFragment.kt" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -286,6 +282,26 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="wetweather" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WetWeather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WetWeather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="wetweather" type="462c0819:PsiDirectoryNode" />
+              <item name="di" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WetWeather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WetWeather" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="wetweather" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -543,7 +559,7 @@
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.3120482" />
       <window_info anchor="bottom" id="TODO" order="2" />
       <window_info anchor="bottom" id="Find" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.37260273" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.37228915" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32771084" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.3939759" />
@@ -820,13 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="61" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-29/android.jar!/android/widget/ImageView.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
@@ -845,14 +854,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_weather_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="68" column="39" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="39" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/models/WeatherHistroy.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1042">
@@ -866,7 +867,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/models/CurrentWeather.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="846">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="e#47#192#0" expanded="true" />
           </folding>
@@ -926,17 +927,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherDetailFragment.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherListFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="39" column="68" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="68" />
+        <state relative-caret-position="258">
+          <caret line="185" column="36" selection-start-line="185" selection-start-column="36" selection-end-line="185" selection-end-column="36" />
+          <folding>
+            <element signature="e#44#1274#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_weather_list.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="84" column="8" lean-forward="true" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="33" />
+        <state relative-caret-position="275">
+          <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
           <folding>
             <element signature="e#3696#3723#0" expanded="true" />
             <element signature="e#5223#5271#0" expanded="true" />
@@ -945,13 +949,46 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherListFragment.kt">
+    <entry file="file://$PROJECT_DIR$/app/build/tmp/kapt3/stubs/debug/com/jayway/techtest/wetweather/models/CurrentWeatherInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="185" column="135" lean-forward="true" selection-start-line="185" selection-start-column="135" selection-end-line="185" selection-end-column="135" />
+        <state relative-caret-position="125">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
-            <element signature="e#44#1274#0" expanded="true" />
+            <element signature="e#10862#10863#0" expanded="true" />
+            <element signature="e#10885#10886#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_weather_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="68" column="39" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jayway/techtest/wetweather/ui/WeatherDetailFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+          <folding>
+            <element signature="e#1645#1676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
