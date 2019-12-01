@@ -141,8 +141,7 @@ class ListViewModelTests{
             weatherService.getWeatherHistroyForGivenDuration(
                 Feeds.createWeatherHistoryUrl(
                     "1080",
-                    "20"
-                )
+                    "20")
             )
         ).thenReturn(testSingle)
 
@@ -158,6 +157,9 @@ class ListViewModelTests{
     }
 
 
+    /**
+     * Test the get weather history for failure
+     * */
     @Test
     fun getWeatherHistoryFailure(){
 

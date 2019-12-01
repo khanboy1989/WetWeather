@@ -1,9 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.WeatherDetailFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.WeatherDetailFragment"
+    android:background="@drawable/ic_gradiant_background">
 
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/statusImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:scaleType="fitCenter"
+        />
+
+    <TextView
+        android:id="@+id/cityNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        style="@style/Title"
+        android:text="London"
+        />
+
+        <ImageView
+            android:id="@+id/temperatureImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toBottomOf="@+id/cityNameTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@mipmap/ic_temperature"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            />
+
+        <TextView
+            android:id="@+id/temperatureTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/temperatureImageView"
+            app:layout_constraintTop_toTopOf="@+id/temperatureImageView"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureImageView"
+            android:layout_marginStart="10dp"
+            style="@style/Title"
+            android:text="20"
+            />
+
+        <ImageView
+            android:id="@+id/pressureImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/temperatureImageView"
+            app:layout_constraintStart_toStartOf="@+id/temperatureImageView"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@mipmap/ic_pressure"
+            />
+
+        <TextView
+            android:id="@+id/pressureTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Title"
+            app:layout_constraintTop_toTopOf="@+id/pressureImageView"
+            app:layout_constraintTop_toBottomOf="@+id/pressureImageView"
+            app:layout_constraintStart_toEndOf="@+id/pressureImageView"
+            android:layout_marginStart="10dp"
+            />
+
+
+        <ImageView
+            android:id="@+id/humidityImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="@+id/temperatureImageView"
+            app:layout_constraintTop_toBottomOf="@+id/pressureImageView"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@mipmap/ic_humidity"
+            />
+
+
+           <TextView
+               android:id="@+id/humidityTV"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:layout_constraintStart_toEndOf="@+id/humidityImageView"
+               app:layout_constraintTop_toTopOf="@+id/humidityImageView"
+               app:layout_constraintBottom_toBottomOf="@+id/humidityImageView"
+               android:layout_marginStart="10dp"
+               style="@style/Title"
+               />
+
+        <ImageView
+            android:id="@+id/windImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="@+id/temperatureImageView"
+            app:layout_constraintTop_toBottomOf="@+id/humidityImageView"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@mipmap/ic_wind"
+            />
+
+        <TextView
+            android:id="@+id/windTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/windImageView"
+            app:layout_constraintTop_toTopOf="@+id/windImageView"
+            app:layout_constraintBottom_toBottomOf="@+id/windImageView"
+            android:layout_marginStart="10dp"
+            style="@style/Title"
+            />
+
+
+        <TextView
+            android:id="@+id/mainWeatherDescriptionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/dateTimeTextView"
+            android:layout_marginBottom="50dp"
+            />
+
+        <TextView
+            android:id="@+id/dateTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="50dp"
+            style="@style/Text"
+            />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

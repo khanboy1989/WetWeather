@@ -7,4 +7,7 @@
     <string name="place_error">An error occurred when selecting the place</string>
     <string name="enter_a_city_name">Please enter a city name</string>
     <string name="count">20</string>
+    <string name="pressure_unit">mBar</string>
+    <string name="percentage">%</string>
+    <string name="wind_speed_symbol">km/h W</string>
 </resources>

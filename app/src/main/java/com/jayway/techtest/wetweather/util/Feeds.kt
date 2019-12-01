@@ -14,7 +14,7 @@ object Feeds {
     }
 
     fun createWeatherHistoryUrl(requestId:String,cnt:String):String{
-        return "$forecast$requestId$count$cnt&$appId"
+        return "$forecast$requestId$count$cnt&$units$appId"
     }
 
 }

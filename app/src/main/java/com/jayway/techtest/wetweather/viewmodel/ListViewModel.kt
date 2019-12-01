@@ -37,6 +37,7 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
     fun refreshCurrentWeather(cityName:String){
         loading.value = true
         loadError.value = false
+        currentWeather.value = null
         getCurrentWeather(Feeds.createGeCurrentWeatherUrl(cityName))
     }
 

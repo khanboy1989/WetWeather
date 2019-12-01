@@ -7,11 +7,25 @@
     <fragment
         android:id="@+id/weatherListFragment"
         android:name="com.jayway.techtest.wetweather.ui.WeatherListFragment"
-        android:label="fragment_weather_list"
-        tools:layout="@layout/fragment_weather_list" />
+        android:label="WetWeather"
+        tools:layout="@layout/fragment_weather_list" >
+        <action
+            android:id="@+id/actionWeatherDetails"
+            app:destination="@id/weatherDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/weatherDetailFragment"
         android:name="com.jayway.techtest.wetweather.ui.WeatherDetailFragment"
-        android:label="fragment_weather_detail"
-        tools:layout="@layout/fragment_weather_detail" />
+        android:label="Details"
+        tools:layout="@layout/fragment_weather_detail" >
+        <action
+            android:id="@+id/actionWeatherList"
+            app:destination="@id/weatherListFragment" />
+        <argument
+            android:name="weatherDataItem"
+            app:argType="com.jayway.techtest.wetweather.models.WeatherData" />
+        <argument
+            android:name="cityName"
+            app:argType="string" />
+    </fragment>
 </navigation>

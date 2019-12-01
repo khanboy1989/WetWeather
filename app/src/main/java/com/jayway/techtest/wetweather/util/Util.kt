@@ -53,13 +53,9 @@ fun ImageView.loadImage(uri: String?, progressDrawable: CircularProgressDrawable
         .into(this)
 }
 
-fun ImageView.loadIcon(icon: String?, progressDrawable: CircularProgressDrawable) {
+fun ImageView.loadIcon(icon: String?) {
 
     val uri = "http://openweathermap.org/img/w/$icon.png"
-
-    val options = RequestOptions.placeholderOf(progressDrawable)
-        .error(R.mipmap.ic_launcher_round)
-
     Glide.with(this.context)
         .asBitmap()
         .load(uri)

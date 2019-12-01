@@ -5,14 +5,15 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.model.TypeFilter
@@ -24,12 +25,7 @@ import com.jayway.techtest.wetweather.models.CurrentWeather
 import com.jayway.techtest.wetweather.models.WeatherHistory
 import com.jayway.techtest.wetweather.util.extractCityNameShortCountryName
 import com.jayway.techtest.wetweather.viewmodel.ListViewModel
-import kotlinx.android.synthetic.main.fragment_weather_list.*
 import kotlinx.android.synthetic.main.fragment_weather_list.view.*
-import kotlinx.android.synthetic.main.fragment_weather_list.view.weatherHistRecycler
-import androidx.recyclerview.widget.DividerItemDecoration
-
-
 
 
 class WeatherListFragment : Fragment(),
@@ -40,20 +36,34 @@ class WeatherListFragment : Fragment(),
     private lateinit var viewModel: ListViewModel
     private val adapter = WeatherListAdapter()
 
+
     //onCreateView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_weather_list, container, false)
         addSearchViewListeners()
         initializePlaces()
         initViewModel()
         initRecycler()
+        initViewData(savedInstanceState)
         return rootView
     }
 
 
+    private fun initViewData(savedInstanceState: Bundle?){
+        if (savedInstanceState!= null) {
+            savedInstanceState.getString(SEARCHED_CITY_KEY)?.let {currentCity->
+                viewModel.refreshCurrentWeather(currentCity)
+            }
+        }else if(!cityName.isNullOrEmpty()){
+            viewModel.refreshCurrentWeather(cityName!!)
+        }
+    }
+
+    /*
+    * initialize the recycler view
+    * */
     private fun initRecycler(){
         rootView.weatherHistRecycler.adapter = adapter
         rootView.weatherHistRecycler.addItemDecoration(
@@ -61,10 +71,18 @@ class WeatherListFragment : Fragment(),
 
     }
 
+    //Adds necessary listeners to searchview
     private fun addSearchViewListeners() {
         rootView.citySearchView.setOnQueryTextListener(this)
         rootView.citySearchView.setOnQueryTextFocusChangeListener(this)
     }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(SEARCHED_CITY_KEY,rootView.citySearchView.query.toString())
+    }
+
 
     override fun onFocusChange(view: View?, focus: Boolean) {
         when (view) {
@@ -82,6 +100,7 @@ class WeatherListFragment : Fragment(),
     override fun onQueryTextSubmit(query: String?): Boolean {
         if(!query.isNullOrEmpty()){
             Log.d(TAG,query)
+            cityName = query
             viewModel.refreshCurrentWeather(query)
         }
         return false
@@ -173,7 +192,7 @@ class WeatherListFragment : Fragment(),
             rootView.weatherHistRecycler.visibility = View.VISIBLE
             rootView.loadingView.visibility = View.GONE
             rootView.next_days_id.visibility = View.VISIBLE
-            adapter.refreshData(weatherHistory.historyList!!)
+            adapter.refreshData(weatherHistory.historyList!!,cityName!!)
     }
     private val loadingLiveDataObserver = Observer<Boolean> { isLoading ->
         when(isLoading){
@@ -203,5 +222,7 @@ class WeatherListFragment : Fragment(),
 
     companion object {
         const val AUTOCOMPLETE_REQUEST_CODE = 22
+        const val  SEARCHED_CITY_KEY = "searched_city_text"
+        var cityName:String? = ""
     }
 }
