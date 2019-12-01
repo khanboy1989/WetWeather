@@ -13,6 +13,7 @@ import com.jayway.techtest.wetweather.models.WeatherData
 import com.jayway.techtest.wetweather.util.convertToDateTime
 import com.jayway.techtest.wetweather.util.loadIcon
 import kotlinx.android.synthetic.main.fragment_weather_detail.view.*
+import kotlin.math.roundToInt
 
 
 class WeatherDetailFragment : Fragment() {
@@ -40,7 +41,7 @@ class WeatherDetailFragment : Fragment() {
         rootView.dateTimeTextView.text = item?.dt?.convertToDateTime()
         rootView.statusImageView.loadIcon(item?.weather?.get(0)?.icon)
         rootView.mainWeatherDescriptionTV.text = item?.weather?.get(0)?.main
-        rootView.temperatureTV.text = item?.main?.temp.toString()
+        rootView.temperatureTV.text = item?.main?.temp?.roundToInt().toString() + getString(R.string.temp_symbol)
         rootView.pressureTV.text = item?.main?.pressure.toString() + " " + getString(R.string.pressure_unit)
         rootView.humidityTV.text = item?.main?.humidity?.toString() + " " + getString(R.string.percentage)
         rootView.windTV.text = item?.wind?.speed.toString() + " " + getString(R.string.wind_speed_symbol)

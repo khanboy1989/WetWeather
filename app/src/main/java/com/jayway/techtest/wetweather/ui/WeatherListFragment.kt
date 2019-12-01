@@ -26,6 +26,7 @@ import com.jayway.techtest.wetweather.models.WeatherHistory
 import com.jayway.techtest.wetweather.util.extractCityNameShortCountryName
 import com.jayway.techtest.wetweather.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_weather_list.view.*
+import kotlin.math.roundToInt
 
 
 class WeatherListFragment : Fragment(),
@@ -182,7 +183,7 @@ class WeatherListFragment : Fragment(),
         weather?.let{
             rootView.cityNameTextView.text = weather.list?.get(0)?.name
             rootView.weatherStatusTextView.text = weather.list?.get(0)?.weatherList?.get(0)?.main
-            rootView.temperatureTextView.text = weather.list?.get(0)?.main?.temp.toString() + "˚"
+            rootView.temperatureTextView.text = weather.list?.get(0)?.main?.temp?.roundToInt().toString() + getString(R.string.temp_symbol)
         }
     }
 
