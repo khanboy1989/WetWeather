@@ -24,6 +24,7 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
     val loadError by lazy { MutableLiveData<Boolean>() }
     val loading by lazy{ MutableLiveData<Boolean>()}
 
+    //Inject the apiservice from dagger AppModule and ViewModel Component
     @Inject
     lateinit var apiService:WeatherApiService
 
@@ -34,6 +35,11 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
             .inject(this)
     }
 
+    /**
+     * the entry point function for getting current weather
+     *
+     * @param cityName where it is provided by WeatherListFragment search result.
+     */
     fun refreshCurrentWeather(cityName:String){
         loading.value = true
         loadError.value = false
@@ -41,6 +47,9 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
         getCurrentWeather(Feeds.createGeCurrentWeatherUrl(cityName))
     }
 
+    /**
+     * gets the current weather depending on users searched city and country
+     */
     private fun getCurrentWeather(url:String){
        disposable.add(apiService.getCurrentWeather(url).observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.newThread())
@@ -60,7 +69,9 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
             }))
     }
 
-
+    /**
+     * Gets the forecast weather information for provided current weather request id
+     * */
      fun getWeatherHistory(requestId:Long?){
         val url = Feeds.createWeatherHistoryUrl(requestId.toString(),"20")
         disposable.add(

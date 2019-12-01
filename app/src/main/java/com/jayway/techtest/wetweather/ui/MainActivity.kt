@@ -17,12 +17,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initNavigationController()
     }
-
+    //initializing the navigation view controller for navigation component (main_navigation.xml)
+    //from resources
     private fun initNavigationController(){
         navController = Navigation.findNavController(this,R.id.fragment)
         NavigationUI.setupActionBarWithNavController(this,navController)
     }
 
+    //Ovverride the support navigation up
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController,null)
     }

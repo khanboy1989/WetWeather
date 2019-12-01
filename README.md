@@ -21,6 +21,7 @@ The following libraries are used:
     => Dagger2
     => Mockito
     => Google places api
+    => Glide
 
 ListViewModel is responsible to perform indicates requests above.
 
