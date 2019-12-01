@@ -10,4 +10,5 @@
     <string name="pressure_unit">mBar</string>
     <string name="percentage">%</string>
     <string name="wind_speed_symbol">km/h W</string>
+    <string name="an_error_occured_please_check_internet">An error occurred while proceeding the request. Plese check your interner connection</string>
 </resources>

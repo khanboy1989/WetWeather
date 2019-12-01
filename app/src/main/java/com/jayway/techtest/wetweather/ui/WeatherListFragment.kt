@@ -192,6 +192,7 @@ class WeatherListFragment : Fragment(),
             rootView.weatherHistRecycler.visibility = View.VISIBLE
             rootView.loadingView.visibility = View.GONE
             rootView.next_days_id.visibility = View.VISIBLE
+            rootView.error_message_text_view.visibility = View.GONE
             adapter.refreshData(weatherHistory.historyList!!,cityName!!)
     }
     private val loadingLiveDataObserver = Observer<Boolean> { isLoading ->
@@ -210,6 +211,11 @@ class WeatherListFragment : Fragment(),
     }
 
     private val errorLiveDataObserver = Observer<Boolean> { isError ->
+        if(isError){
+            rootView.next_days_id.visibility = View.GONE
+            rootView.weatherHistRecycler.visibility = View.GONE
+            rootView.error_message_text_view.visibility = View.VISIBLE
+        }
     }
 
     private fun initViewModel(){
